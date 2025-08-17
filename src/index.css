@@ -1,0 +1,198 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Rafael Luan Schmitz - Portfolio Design System */
+
+@layer base {
+  :root {
+    /* Primary brand colors - Tech/Professional blue-purple gradient */
+    --background: 220 15% 97%;
+    --foreground: 222 84% 4.9%;
+
+    /* Card system */
+    --card: 0 0% 100%;
+    --card-foreground: 222 84% 4.9%;
+
+    /* Interactive elements */
+    --primary: 262 83% 58%;
+    --primary-foreground: 210 40% 98%;
+    --primary-glow: 269 78% 72%;
+
+    /* Secondary palette */
+    --secondary: 214 32% 91%;
+    --secondary-foreground: 222 47% 11%;
+
+    /* Accent system */
+    --accent: 262 83% 58%;
+    --accent-foreground: 210 40% 98%;
+    --accent-muted: 262 30% 92%;
+
+    /* Status colors */
+    --success: 142 76% 36%;
+    --success-foreground: 210 40% 98%;
+    
+    /* Muted elements */
+    --muted: 214 32% 91%;
+    --muted-foreground: 215 16% 47%;
+
+    /* Border and input */
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 262 83% 58%;
+
+    --radius: 0.75rem;
+
+    /* Custom gradients for hero and sections */
+    --gradient-primary: linear-gradient(135deg, hsl(262 83% 58%), hsl(269 78% 72%));
+    --gradient-secondary: linear-gradient(135deg, hsl(214 32% 91%), hsl(220 15% 97%));
+    --gradient-hero: linear-gradient(135deg, hsl(262 83% 58%) 0%, hsl(232 79% 64%) 50%, hsl(269 78% 72%) 100%);
+    
+    /* Shadows */
+    --shadow-glow: 0 0 40px hsl(262 83% 58% / 0.3);
+    --shadow-card: 0 10px 25px -5px hsl(262 83% 58% / 0.1);
+    
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --animation-float: float 6s ease-in-out infinite;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    /* Dark mode - Professional tech theme */
+    --background: 222 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    /* Maintain brand colors in dark mode */
+    --primary: 262 83% 58%;
+    --primary-foreground: 210 40% 98%;
+    --primary-glow: 269 78% 72%;
+
+    --secondary: 217 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 262 83% 58%;
+    --accent-foreground: 210 40% 98%;
+    --accent-muted: 262 30% 20%;
+
+    --success: 142 76% 36%;
+    --success-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217 32.6% 17.5%;
+    --input: 217 32.6% 17.5%;
+    --ring: 262 83% 58%;
+
+    /* Dark mode gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(262 83% 58%), hsl(269 78% 72%));
+    --gradient-secondary: linear-gradient(135deg, hsl(217 32.6% 17.5%), hsl(222 84% 4.9%));
+    --gradient-hero: linear-gradient(135deg, hsl(262 83% 58%) 0%, hsl(232 79% 64%) 50%, hsl(269 78% 72%) 100%);
+    
+    /* Dark mode shadows */
+    --shadow-glow: 0 0 40px hsl(262 83% 58% / 0.4);
+    --shadow-card: 0 10px 25px -5px hsl(262 83% 58% / 0.2);
+    
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 262 83% 58%;
+    --sidebar-primary-foreground: 210 40% 98%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 262 83% 58%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+  }
+}
+
+/* Custom animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes glow {
+  0%, 100% { filter: drop-shadow(var(--shadow-glow)); }
+  50% { filter: drop-shadow(0 0 60px hsl(262 83% 58% / 0.5)); }
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Custom component styles */
+@layer components {
+  .hero-gradient {
+    background: var(--gradient-hero);
+  }
+  
+  .card-glow {
+    box-shadow: var(--shadow-card);
+    transition: var(--transition-smooth);
+  }
+  
+  .card-glow:hover {
+    box-shadow: var(--shadow-glow);
+    transform: translateY(-4px);
+  }
+  
+  .text-gradient {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .animate-float {
+    animation: var(--animation-float);
+  }
+  
+  .animate-glow {
+    animation: glow 3s ease-in-out infinite;
+  }
+  
+  .animate-slide-up {
+    animation: slideInUp 0.6s ease-out forwards;
+  }
+}
